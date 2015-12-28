@@ -76,7 +76,7 @@ easy_admin:
             label: Users
            # disabled_actions: ['new','edit']
             list:
-              fields: ['id', 'name', 'phone', {property:'email',label:'Email'},{property:'address.city',label:'City'},{property:'address.street',label:'Street'},{property:'address.dom',label:'dom'}]
+              fields: ['id', 'name', 'phone', {property:'email',label:'Email'},{property:'user.city',label:'City'},{property:'user.street',label:'Street'},{property:'user.dom',label:'dom'}]
               title: 'User details'
              # №disabled_actions: ['show']
              #  actions: ['-edit', '-new', '-search']

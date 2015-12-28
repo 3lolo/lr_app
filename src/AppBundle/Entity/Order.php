@@ -90,8 +90,8 @@ class Order
 
     public function __construct($uid, $pid, $date, $count)
     {
-        $this->uid = $uid;
-        $this->pid = $pid;
+        $this->userId = $uid;
+        $this->productId = $pid;
         $this->date = $date;
         $this->count = $count;
     }

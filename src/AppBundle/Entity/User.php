@@ -33,63 +33,103 @@ class User
      */
     protected $email;
     /**
-     * @ORM\Column(type="integer", name = "addressId")
+     * @ORM\Column(type="string")
      */
-    protected $addressId;
+    protected $city;
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $street;
 
     /**
-     * @var Address
-     * @ORM\ManyToOne(targetEntity="Address", cascade={"all"})
-     * @ORM\JoinColumn(name="addressId", referencedColumnName="id")
+     * @ORM\Column(type="string")
      */
-    protected $address;
+    protected $flat;
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $dom;
 
 
 
 
 
-    function __construct($name,$password,$phone,$email,$address) {
+
+    function __construct($name,$password,$phone,$email,$city,$street,$flat,$dom) {
         $this->phone    =   $phone;
         $this->name     =   $name;
         $this->password =   $password;
         $this->email    =   $email;
-        $this->address  =   new Address($address->id,$address->city,$address->dom,$address->flat,$address->street);
-
+        $this->city     =   $city;
+        $this->street   =   $street;
+        $this->flat     =   $flat;
+        $this->dom      =   $dom;
     }
 
+
+/**
+     * @return mixed
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
 
     /**
-     * @param \AppBundle\Entity\Address $address
+     * @param mixed $email
      */
-    public function setAddress($address)
+    public function setCity($city)
     {
-        $this->address = $address;
+        $this->city = $city;
     }
 
+/**
+     * @return mixed 
+     */
+    public function getStreet()
+    {
+        return $this->street;
+    }
 
     /**
-     * @return Address
+     * @param mixed $street
      */
-    public function getAddress()
+    public function setStreet($street)
     {
-        return $this->address;
+        $this->street = $street;
     }
 
+/**
+     * @return mixed
+     */
+    public function getDom()
+    {
+        return $this->dom;
+    }
+
+    /**
+     * @param mixed $dom
+     */
+    public function setDom($dom)
+    {
+        $this->dom = $dom;
+    }
     /**
      * @return mixed
      */
-    public function getAddressId()
+    public function getFlat()
     {
-        return $this->addressId;
+        return $this->flat;
     }
 
     /**
-     * @param mixed $addressId
+     * @param mixed $email
      */
-    public function setAddressId($addressId)
+    public function setFlat($flat)
     {
-        $this->addressId = $addressId;
+        $this->flat = $flat;
     }
+
 
 
 

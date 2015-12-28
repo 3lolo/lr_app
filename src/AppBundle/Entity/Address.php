@@ -35,8 +35,7 @@ class Address{
      */
     protected $flat;
 
-    function __construct($id,$city,$dom,$flat,$street) {
-        $this->id       =   $id;
+    function __construct($city,$dom,$flat,$street) {
         $this->city     =   $city;
         $this->street   =   $street;
         $this->dom      =   $dom;

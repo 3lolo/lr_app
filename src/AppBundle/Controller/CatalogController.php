@@ -82,17 +82,46 @@ class CatalogController extends Controller
      * @Route("/addOrder/{user_id}/{product_id}/{count}")
      */
     public function addOrderAction($user_id,$product_id,$count){
+        
+
+        $em = $this->getDoctrine()->getManager();
+
         $date  = new \DateTime("now");
+        $date = $date->format('d-m-Y');
+
+        $sql = "INSERT INTO Ordered (userId, productId, date, countP) VALUES ('$user_id','$product_id','$date','$count')";
+        $this->getQuery($sql);
 
 
-        $order = new Order($user_id,$product_id,$date->format('d-m-Y'),$count);
+
+/*        $order = new Order($user_id,$product_id,$date->format('d-m-Y'),$count);
         print_r($order);
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($order);
         $em->flush();
 
+*/
+        $product =  $this->getDoctrine()
+        ->getRepository('AppBundle:Product')
+        ->find($product_id);
 
+        $user  =  $this->getDoctrine()
+        ->getRepository('AppBundle:User')
+        ->find($user_id);
+
+        //print_r($user);
+      //  print_r($product);
+        $name = $user->getName();
+        $phone = $user->getPhone();
+        $prod = $product->getTest();
+        $city = $user->getCity();
+        $street = $street->getStreet();
+        $flat = $street->getFlat();
+        $dom = $street->getDom();
+
+        $message = "имя: $name\n телефон: $phone \n адрес: г.$city, ул.$street, д.$dom,кв.$flat \n, Продукт: $prod, колличество: $count \n Дата: $date";
+        $this->sendEmailAction($message);
         $result = array("response"  =>  "true");
         $response = new Response(json_encode($result));
         $response->headers->set('Content-Type', 'application/json');
@@ -100,6 +129,23 @@ class CatalogController extends Controller
         return $response;
 
     }
+ private function getQuery($query){
+        $em = $this->getDoctrine()->getEntityManager();
+        $connection = $em->getConnection();
+        $statement = $connection->prepare($query);
+        $statement->execute();
+        //return $statement->fetchAll();
+    }
 
 
+    public function sendEmailAction($message){
+    $message = \Swift_Message::newInstance()
+        ->setSubject('Hello Email')
+        ->setFrom('pozniack@gmail.com')
+        ->setTo('69knocker@gmail.com')
+        ->setBody($message);
+
+    $this->get('mailer')->send($message);
+
+}
 }

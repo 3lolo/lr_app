@@ -36,19 +36,16 @@ class AddressController extends Controller
      * @Route("/addAddress/{city}/{street}/{dom}/{flat}")
      */
     public function addAction($city,$street,$dom,$flat){
-        $result = $this->check($city,$street,$dom,$flat);
-        if($result == "0"){
-            $address  =  new Address();
-            $address->setDom($dom);
-            $address->setFlat($flat);
-            $address->setStreet($street);
-            $address->setCity($city);
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($address);
-            $em->flush();
-        }
+        $address  =  new Address($city,$street,$dom,$flat);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($address);
+        $em->flush();
+        $qb = $em->createQueryBuilder();
+        $qb->select('count(address.id)');
+        $qb->from('AppBundle:address','address');
 
-        $result = array("response"  =>  $this->check($city,$street,$dom,$flat));
+        $count = $qb->getQuery()->getSingleScalarResult();
+        $result = array("response"  =>  $count);
         $response = new Response(json_encode($result));
         $response->headers->set('Content-Type', 'application/json');
 
@@ -68,9 +65,10 @@ class AddressController extends Controller
     }
     private function check($city,$street,$dom,$flat){
         $repo = $this->getDoctrine()->getRepository('AppBundle:Address');
-        $address = $repo->findBy(array("city" => $city,
+        $address = $repo->findBy(array("city"=>$city,
                                         "dom" => $dom,
                                         "flat" => $flat));
+        print_r($address);
         if (empty($address))
             return 0;
         else
