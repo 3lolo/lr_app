@@ -36,7 +36,7 @@ class Product extends \AppBundle\Entity\Product implements \Doctrine\ORM\Proxy\P
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Product extends \AppBundle\Entity\Product implements \Doctrine\ORM\Proxy\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'id', 'prodName', 'info', 'price', 'picture', 'subId', 'test');
+            return ['__isInitialized__', 'id', 'prodName', 'info', 'price', 'picture', 'subId', 'test'];
         }
 
-        return array('__isInitialized__', 'id', 'prodName', 'info', 'price', 'picture', 'subId', 'test');
+        return ['__isInitialized__', 'id', 'prodName', 'info', 'price', 'picture', 'subId', 'test'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Product extends \AppBundle\Entity\Product implements \Doctrine\ORM\Proxy\P
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Product extends \AppBundle\Entity\Product implements \Doctrine\ORM\Proxy\P
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -179,7 +179,7 @@ class Product extends \AppBundle\Entity\Product implements \Doctrine\ORM\Proxy\P
     public function getTest()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTest', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTest', []);
 
         return parent::getTest();
     }
@@ -190,7 +190,7 @@ class Product extends \AppBundle\Entity\Product implements \Doctrine\ORM\Proxy\P
     public function setTest($test)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTest', array($test));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTest', [$test]);
 
         return parent::setTest($test);
     }
@@ -205,7 +205,7 @@ class Product extends \AppBundle\Entity\Product implements \Doctrine\ORM\Proxy\P
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -216,7 +216,7 @@ class Product extends \AppBundle\Entity\Product implements \Doctrine\ORM\Proxy\P
     public function setId($id)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setId', array($id));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setId', [$id]);
 
         return parent::setId($id);
     }
@@ -227,7 +227,7 @@ class Product extends \AppBundle\Entity\Product implements \Doctrine\ORM\Proxy\P
     public function getProdName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProdName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProdName', []);
 
         return parent::getProdName();
     }
@@ -238,7 +238,7 @@ class Product extends \AppBundle\Entity\Product implements \Doctrine\ORM\Proxy\P
     public function setProdName($prodName)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProdName', array($prodName));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProdName', [$prodName]);
 
         return parent::setProdName($prodName);
     }
@@ -249,7 +249,7 @@ class Product extends \AppBundle\Entity\Product implements \Doctrine\ORM\Proxy\P
     public function getInfo()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getInfo', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getInfo', []);
 
         return parent::getInfo();
     }
@@ -260,7 +260,7 @@ class Product extends \AppBundle\Entity\Product implements \Doctrine\ORM\Proxy\P
     public function setInfo($info)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setInfo', array($info));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setInfo', [$info]);
 
         return parent::setInfo($info);
     }
@@ -271,7 +271,7 @@ class Product extends \AppBundle\Entity\Product implements \Doctrine\ORM\Proxy\P
     public function getPrice()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPrice', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPrice', []);
 
         return parent::getPrice();
     }
@@ -282,7 +282,7 @@ class Product extends \AppBundle\Entity\Product implements \Doctrine\ORM\Proxy\P
     public function setPrice($price)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPrice', array($price));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPrice', [$price]);
 
         return parent::setPrice($price);
     }
@@ -293,7 +293,7 @@ class Product extends \AppBundle\Entity\Product implements \Doctrine\ORM\Proxy\P
     public function getPicture()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPicture', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPicture', []);
 
         return parent::getPicture();
     }
@@ -304,7 +304,7 @@ class Product extends \AppBundle\Entity\Product implements \Doctrine\ORM\Proxy\P
     public function setPicture($picture)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPicture', array($picture));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPicture', [$picture]);
 
         return parent::setPicture($picture);
     }
@@ -315,7 +315,7 @@ class Product extends \AppBundle\Entity\Product implements \Doctrine\ORM\Proxy\P
     public function getSubId()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSubId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSubId', []);
 
         return parent::getSubId();
     }
@@ -326,7 +326,7 @@ class Product extends \AppBundle\Entity\Product implements \Doctrine\ORM\Proxy\P
     public function setSubId($subId)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSubId', array($subId));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSubId', [$subId]);
 
         return parent::setSubId($subId);
     }
@@ -337,7 +337,7 @@ class Product extends \AppBundle\Entity\Product implements \Doctrine\ORM\Proxy\P
     public function findBySubId($id)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'findBySubId', array($id));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'findBySubId', [$id]);
 
         return parent::findBySubId($id);
     }

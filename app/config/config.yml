@@ -71,42 +71,63 @@ swiftmailer:
 easy_admin:
     entities:
         User:
-        #disabled_actions: ['show']
             class: AppBundle\Entity\User
-            label: Users
-           # disabled_actions: ['new','edit']
             list:
-              fields: ['id', 'name', 'phone', {property:'email',label:'Email'},{property:'user.city',label:'City'},{property:'user.street',label:'Street'},{property:'user.dom',label:'dom'}]
+              fields: ['id', 'name', 'phone', {property:'email',label:'Email'},{property:'city',label:'City'},{property:'street',label:'Street'},{property:'dom',label:'dom'}]
               title: 'User details'
-             # №disabled_actions: ['show']
-             #  actions: ['-edit', '-new', '-search']
+              actions: ['-new',{ name: 'show', label: 'Show' },'-edit',{ name: 'search', label: 'Search' }]
+            show:
+                title: 'User details'
+                fields: ['id', 'name', 'phone', {property:'email',label:'Email'},{property:'city',label:'City'},{property:'street',label:'Street'},{property:'dom',label:'dom'}]
+                actions: ['-edit',{ name: 'delete', label: 'Delete' },{ name: 'list', label: 'BACK TO LIST' }]
             new:
               fields: ['name', 'phone', 'email']
         Order:
             class: AppBundle\Entity\Order
-            title: 'Orders details'
-           # disabled_actions: ['new','edit']
             list:
+                title: 'Order details'
+                fields: ['id',  {property:'user.name',label:'Name'}, {property:'user.phone',label:'Phone'},{property:'product.test',label:'Product Name'}, {property:'count',label:'Count'}, {property:'date',label:'Date'}]
+                actions: [{name: 'show', label: 'Show' },'-edit','-new',{ name: 'search', label: 'Search' }]
+            show:
+                title: 'Order'
                 fields: ['id',  {property:'user.name',label:'Name'}, {property:'user.phone',label:'Phone'},{property:'product.test',label:'Product'}, {property:'count',label:'Count'}, {property:'date',label:'Date'}]
-              #  action:
-              #      - { name: 'new'}
-                    #            - { name: 'show', label: 'View details' }
+                actions: ['-edit',{ name: 'delete', label: 'Delete' },{ name: 'list', label: 'BACK TO LIST' }]
         Catagory:
             class: AppBundle\Entity\Category
-           # disabled_actions: ['new','edit']
             list:
                 fields: [ id,name,{property:'pic',label:'Picture',type:'image'}]
                 title: 'Category details'
-               # action:
-                #                    -{name:'new',label:'NEW'}
+                actions: [{name: 'show', label: 'Show' },{ name: 'edit', label: 'Edit' },{ name: 'search', label: 'Search' },{ name: 'new', label: 'add Catagory' }]
+            show:
+                title: 'Catagory'
+                fields: [ id,name,{property:'pic',label:'Picture',type:'image'}]
+                actions: [{ name: 'delete', label: 'Delete' },{ name: 'edit', label: 'Edit' },{ name: 'list', label: 'BACK TO LIST' }]
+            edit:
+                title: 'Catagory Edit'
+                fields: [name,pic]
+                actions: [{ name: 'delete', label: 'Delete' },{ name: 'list', label: 'BACK TO LIST' }]
         SubCatagory:
             class: AppBundle\Entity\SubCat
             list:
                 fields: [ id ,name,atribute,{property:'picture',label:'Picture',type:'image'},{property:'catId',label:'Category'}]
                 title: 'SubCatagory details'
-             #   disabled_actions: ['edit']
+                actions: [{name: 'show', label: 'Show' },{ name: 'edit', label: 'Edit' },{ name: 'new', label: 'Add Sub' },{ name: 'search', label: 'Search' }]
+            show:
+                title: 'SubCatagory'
+                fields: [ id ,name,atribute,{property:'picture',label:'Picture',type:'image'},{property:'catId',label:'Category'}]
+                actions: ['-show',{ name: 'delete', label: 'Delete' },{ name: 'edit', label: 'Edit' },{ name: 'list', label: 'BACK TO LIST' }]
+            edit:
+                actions: [{ name: 'delete', label: 'Delete' },{ name: 'list', label: 'BACK TO LIST' }]
+                fields: [name,atribute,'picture',{property:'catId',label:'Category'}]
+
         Products:
             class: AppBundle\Entity\Product
             list:
-                fields: [ id ,{property:'test',label:'Name'},subId,info,price,{property:'picture',label:'Picture',type:'image'}]
                 title: 'Products details'
+                fields: [ id ,{property:'test',label:'Name'},subId,info,price,{property:'picture',label:'Picture',type:'image'}]
+                actions: ['-show',{ name: 'edit', label: 'Edit' },{ name: 'new', label: 'Add Product' },{ name: 'search', label: 'Search' }]
+            edit:
+                title: 'Product Edit'
+                actions: ['-show',{ name: 'edit', label: 'Edit' },{ name: 'delete', label: 'Delete' },{ name: 'list', label: 'BACK TO LIST' }]
+                fields: [{property:'test',label:'Name'},subId,info,price,'picture']
+

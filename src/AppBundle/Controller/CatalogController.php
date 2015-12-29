@@ -82,8 +82,6 @@ class CatalogController extends Controller
      * @Route("/addOrder/{user_id}/{product_id}/{count}")
      */
     public function addOrderAction($user_id,$product_id,$count){
-        
-
         $em = $this->getDoctrine()->getManager();
 
         $date  = new \DateTime("now");
@@ -92,16 +90,6 @@ class CatalogController extends Controller
         $sql = "INSERT INTO Ordered (userId, productId, date, countP) VALUES ('$user_id','$product_id','$date','$count')";
         $this->getQuery($sql);
 
-
-
-/*        $order = new Order($user_id,$product_id,$date->format('d-m-Y'),$count);
-        print_r($order);
-
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($order);
-        $em->flush();
-
-*/
         $product =  $this->getDoctrine()
         ->getRepository('AppBundle:Product')
         ->find($product_id);
@@ -110,15 +98,13 @@ class CatalogController extends Controller
         ->getRepository('AppBundle:User')
         ->find($user_id);
 
-        //print_r($user);
-      //  print_r($product);
         $name = $user->getName();
         $phone = $user->getPhone();
         $prod = $product->getTest();
         $city = $user->getCity();
-        $street = $street->getStreet();
-        $flat = $street->getFlat();
-        $dom = $street->getDom();
+        $street = $user->getStreet();
+        $flat = $user->getFlat();
+        $dom = $user->getDom();
 
         $message = "имя: $name\n телефон: $phone \n адрес: г.$city, ул.$street, д.$dom,кв.$flat \n, Продукт: $prod, колличество: $count \n Дата: $date";
         $this->sendEmailAction($message);
@@ -129,6 +115,30 @@ class CatalogController extends Controller
         return $response;
 
     }
+    /**
+     * @Route("/allProducts/")
+     */
+    public function allProductsAction(){
+        $repo = $this->getDoctrine()->getRepository('AppBundle:Product');
+        $product  = $repo->findAll();
+        $result = array();
+        for($i=  0; $i<count($product);$i++) {
+            $data = array(
+                "id" => $product[$i]->getId(),
+                "name" => $product[$i]->getTest(),
+                "info" => $product[$i]->getInfo(),
+                "price" => $product[$i]->getPrice(),
+                "picture" => $product[$i]->getPicture(),
+                "subId" => $product[$i]->getSubId()
+            );
+            array_push($result,$data);
+        }
+        $response = new Response(json_encode(array("response"=>$result)));
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
+
+    }
+
  private function getQuery($query){
         $em = $this->getDoctrine()->getEntityManager();
         $connection = $em->getConnection();

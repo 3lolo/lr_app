@@ -15,22 +15,22 @@ class UserController extends Controller
      */
     public function addAction($name,$password,$phone,$email,$city,$street,$dom,$flat)
     {
-        $id = $this->getAddress($city,$street,$dom,$flat);
-        $result = $this->forward('AppBundle:Address:get', array(  "id"      =>  $id));
+        $res  = $this->uniqAction($email,$phone);
+        if(empty($res)) {
+            $user = new User();
+            $user = $this->setUser($user,$name, $password, $phone, $email, $city, $street, $dom, $flat);
 
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
 
-        $address = json_decode($result->getContent())->response;
-        print_r($address->flat);
-        $user = new User($name,$password,$phone,$email,$address);
+            $response = new Response(json_encode(array('response' => "true")));
+            $response->headers->set('Content-Type', 'application/json');
+        }
+        else {
+            $response =new Response(json_encode(array('response'=>$res)));
+        }
 
-
-
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($user);
-        $em->flush();
-
-        $response = new Response(json_encode(array('response' => "true")));
-        $response->headers->set('Content-Type', 'application/json');
         return $response;
     }
 
@@ -41,47 +41,53 @@ class UserController extends Controller
     {
         $response = new Response();
         $urepo = $this->getDoctrine()->getRepository('AppBundle:User');
-        $data = array('email'       =>  $email,
-            'password'    =>  $password
-        );
         $users = $urepo->findByEmail($email);
         for($i=0;$i<count($email);$i++) {
             $user = $users[$i];
             if ($user->getPassword() == $password) {
-                //    $user = $user[0];
-                $addres = $user->getAddress();
-                $data = array("name" => $user->getName(),
+                $data = array(
+                    "id" => $user->getId(),
+                    "name" => $user->getName(),
                     "password" => $user->getPassword(),
                     "phone" => $user->getPhone(),
                     "email" => $user->getEmail(),
-                    "city" => $addres->getCity(),
-                    "street" => $addres->getStreet(),
-                    "dom" => $addres->getDom(),
-                    "flat" => $addres->getFlat());
+                    "city" => $user->getCity(),
+                    "street" => $user->getStreet(),
+                    "dom" => $user->getDom(),
+                    "flat" => $user->getFlat());
                 $response = new Response(json_encode($data));
                 $response->headers->set('Content-Type', 'application/json');
             }
         }
         return $response;
     }
+    private  function uniqAction($mail,$phone)
+    {
+        $json = array();
 
-    private function getAddress($city,$street,$dom,$flat){
-        $result = $this->forward('AppBundle:Address:check', array(  "city"      =>  $city,
-                                                                    "street"    =>  $street,
-                                                                    "dom"       =>  $dom,
-                                                                    "flat"      =>  $flat));
+        $mrepo = $this->getDoctrine()->getRepository('AppBundle:User');
 
-        $id = json_decode($result->getContent())->response;
-        //print_r($id);
-        if($id == 0 ) {
-            $result = $this->forward('AppBundle:Address:add', array("city"      =>  $city,
-                                                                    "street"    =>  $street,
-                                                                    "dom"       =>  $dom,
-                                                                    "flat"      =>  $flat));
-            $ar = json_decode($result->getContent());
-            $id =$ar->response;
-        }
-        return $id;
+        $res = $mrepo->findByEmail($mail);
+        if (!empty($res))
+            $json['email'] = $mail;
+
+        $res = $mrepo->findByPhone($phone);
+        if (!empty($res))
+            $json['phone'] = $phone;
+
+        return $json;
+    }
+
+    private function setUser($user,$name, $password, $phone, $email, $city, $street, $dom, $flat){
+        $user->setName($name);
+        $user->setPassword($password);
+        $user->setPhone($phone);
+        $user->setEmail($email);
+        $user->setCity($city);
+        $user->setStreet($street);
+        $user->setDom($dom);
+        $user->setFlat($flat);
+        return $user;
     }
 
 }

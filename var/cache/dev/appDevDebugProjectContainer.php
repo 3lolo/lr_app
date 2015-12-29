@@ -24,7 +24,7 @@ class appDevDebugProjectContainer extends Container
     public function __construct()
     {
         $dir = __DIR__;
-        for ($i = 1; $i <= 4; ++$i) {
+        for ($i = 1; $i <= 5; ++$i) {
             $this->targetDirs[$i] = $dir = dirname($dir);
         }
         $this->parameters = $this->getDefaultParameters();
@@ -672,7 +672,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_metadata_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_default_c993dd53ef6738f87d08faf099d48f05a6195fee462ff416896c52e18e948abf');
+        $instance->setNamespace('sf2orm_default_c8bec822d17da9c2c65e618fb0f0bc527df58bbd68f471ce0e689d82ec632662');
 
         return $instance;
     }
@@ -689,7 +689,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_query_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_default_c993dd53ef6738f87d08faf099d48f05a6195fee462ff416896c52e18e948abf');
+        $instance->setNamespace('sf2orm_default_c8bec822d17da9c2c65e618fb0f0bc527df58bbd68f471ce0e689d82ec632662');
 
         return $instance;
     }
@@ -706,7 +706,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_result_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_default_c993dd53ef6738f87d08faf099d48f05a6195fee462ff416896c52e18e948abf');
+        $instance->setNamespace('sf2orm_default_c8bec822d17da9c2c65e618fb0f0bc527df58bbd68f471ce0e689d82ec632662');
 
         return $instance;
     }
@@ -721,7 +721,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getEasyadmin_ConfiguratorService()
     {
-        return $this->services['easyadmin.configurator'] = new \JavierEguiluz\Bundle\EasyAdminBundle\Configuration\Configurator(array('entities' => array('User' => array('class' => 'AppBundle\\Entity\\User', 'label' => 'Users', 'list' => array('fields' => array('id' => array('property' => 'id', 'template' => NULL), 'name' => array('property' => 'name', 'template' => NULL), 'phone' => array('property' => 'phone', 'template' => NULL), 'email' => array('property' => 'email', 'label' => 'Email', 'template' => NULL), 'address.city' => array('property' => 'address.city', 'label' => 'City', 'template' => NULL), 'address.street' => array('property' => 'address.street', 'label' => 'Street', 'template' => NULL), 'address.dom' => array('property' => 'address.dom', 'label' => 'dom', 'template' => NULL)), 'title' => 'User details', 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => 'action.show', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'class' => '', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'action.search', 'class' => '', 'icon' => NULL), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'action.new', 'class' => '', 'icon' => NULL), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'new' => array('fields' => array('name' => array('property' => 'name'), 'phone' => array('property' => 'phone'), 'email' => array('property' => 'email')), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'name' => 'User', 'edit' => array('fields' => array(), 'form_options' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'search' => array('fields' => array()), 'show' => array('fields' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'class' => '', 'icon' => 'edit'))), 'disabled_actions' => array(), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'form' => '@EasyAdmin/default/form.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'Order' => array('class' => 'AppBundle\\Entity\\Order', 'title' => 'Orders details', 'list' => array('fields' => array('id' => array('property' => 'id', 'template' => NULL), 'user.name' => array('property' => 'user.name', 'label' => 'Name', 'template' => NULL), 'user.phone' => array('property' => 'user.phone', 'label' => 'Phone', 'template' => NULL), 'product.test' => array('property' => 'product.test', 'label' => 'Product', 'template' => NULL), 'count' => array('property' => 'count', 'label' => 'Count', 'template' => NULL), 'date' => array('property' => 'date', 'label' => 'Date', 'template' => NULL)), 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => 'action.show', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'class' => '', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'action.search', 'class' => '', 'icon' => NULL), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'action.new', 'class' => '', 'icon' => NULL), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'label' => 'Order', 'name' => 'Order', 'edit' => array('fields' => array(), 'form_options' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'new' => array('fields' => array(), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'search' => array('fields' => array()), 'show' => array('fields' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'class' => '', 'icon' => 'edit'))), 'disabled_actions' => array(), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'form' => '@EasyAdmin/default/form.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'Catagory' => array('class' => 'AppBundle\\Entity\\Category', 'list' => array('fields' => array('id' => array('property' => 'id', 'template' => NULL), 'name' => array('property' => 'name', 'template' => NULL), 'pic' => array('property' => 'pic', 'label' => 'Picture', 'type' => 'image', 'template' => NULL)), 'title' => 'Category details', 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => 'action.show', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'class' => '', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'action.search', 'class' => '', 'icon' => NULL), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'action.new', 'class' => '', 'icon' => NULL), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'label' => 'Catagory', 'name' => 'Catagory', 'edit' => array('fields' => array(), 'form_options' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'new' => array('fields' => array(), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'search' => array('fields' => array()), 'show' => array('fields' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'class' => '', 'icon' => 'edit'))), 'disabled_actions' => array(), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'form' => '@EasyAdmin/default/form.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'SubCatagory' => array('class' => 'AppBundle\\Entity\\SubCat', 'list' => array('fields' => array('id' => array('property' => 'id', 'template' => NULL), 'name' => array('property' => 'name', 'template' => NULL), 'atribute' => array('property' => 'atribute', 'template' => NULL), 'picture' => array('property' => 'picture', 'label' => 'Picture', 'type' => 'image', 'template' => NULL), 'catId' => array('property' => 'catId', 'label' => 'Category', 'template' => NULL)), 'title' => 'SubCatagory details', 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => 'action.show', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'class' => '', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'action.search', 'class' => '', 'icon' => NULL), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'action.new', 'class' => '', 'icon' => NULL), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'label' => 'SubCatagory', 'name' => 'SubCatagory', 'edit' => array('fields' => array(), 'form_options' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'new' => array('fields' => array(), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'search' => array('fields' => array()), 'show' => array('fields' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'class' => '', 'icon' => 'edit'))), 'disabled_actions' => array(), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'form' => '@EasyAdmin/default/form.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'Products' => array('class' => 'AppBundle\\Entity\\Product', 'list' => array('fields' => array('id' => array('property' => 'id', 'template' => NULL), 'test' => array('property' => 'test', 'label' => 'Name', 'template' => NULL), 'subId' => array('property' => 'subId', 'template' => NULL), 'info' => array('property' => 'info', 'template' => NULL), 'price' => array('property' => 'price', 'template' => NULL), 'picture' => array('property' => 'picture', 'label' => 'Picture', 'type' => 'image', 'template' => NULL)), 'title' => 'Products details', 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => 'action.show', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'class' => '', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'action.search', 'class' => '', 'icon' => NULL), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'action.new', 'class' => '', 'icon' => NULL), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'label' => 'Products', 'name' => 'Products', 'edit' => array('fields' => array(), 'form_options' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'new' => array('fields' => array(), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'search' => array('fields' => array()), 'show' => array('fields' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'class' => '', 'icon' => 'edit'))), 'disabled_actions' => array(), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'form' => '@EasyAdmin/default/form.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig'))), 'design' => array('assets' => array('css' => array(), 'js' => array()), 'theme' => 'default', 'color_scheme' => 'dark', 'brand_color' => '#E67E22', 'form_theme' => array(0 => '@EasyAdmin/form/bootstrap_3_horizontal_layout.html.twig')), 'site_name' => 'Easy Admin', 'formats' => array('date' => 'Y-m-d', 'time' => 'H:i:s', 'datetime' => 'F j, Y H:i'), 'disabled_actions' => array(), 'list' => array('actions' => array(), 'max_results' => 15), 'edit' => array('actions' => array()), 'new' => array('actions' => array()), 'show' => array('actions' => array()), 'default_entity_name' => 'User'), new \JavierEguiluz\Bundle\EasyAdminBundle\Reflection\EntityMetadataInspector($this->get('doctrine')));
+        return $this->services['easyadmin.configurator'] = new \JavierEguiluz\Bundle\EasyAdminBundle\Configuration\Configurator(array('entities' => array('User' => array('class' => 'AppBundle\\Entity\\User', 'list' => array('fields' => array('id' => array('property' => 'id', 'template' => NULL), 'name' => array('property' => 'name', 'template' => NULL), 'phone' => array('property' => 'phone', 'template' => NULL), 'email' => array('property' => 'email', 'label' => 'Email', 'template' => NULL), 'city' => array('property' => 'city', 'label' => 'City', 'template' => NULL), 'street' => array('property' => 'street', 'label' => 'Street', 'template' => NULL), 'dom' => array('property' => 'dom', 'label' => 'dom', 'template' => NULL)), 'title' => 'User details', 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => 'Show', 'class' => '', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'Search', 'class' => '', 'icon' => NULL), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'show' => array('title' => 'User details', 'fields' => array('id' => array('property' => 'id', 'template' => NULL), 'name' => array('property' => 'name', 'template' => NULL), 'phone' => array('property' => 'phone', 'template' => NULL), 'email' => array('property' => 'email', 'label' => 'Email', 'template' => NULL), 'city' => array('property' => 'city', 'label' => 'City', 'template' => NULL), 'street' => array('property' => 'street', 'label' => 'Street', 'template' => NULL), 'dom' => array('property' => 'dom', 'label' => 'dom', 'template' => NULL)), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'Delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'BACK TO LIST', 'class' => '', 'icon' => NULL))), 'new' => array('fields' => array('name' => array('property' => 'name'), 'phone' => array('property' => 'phone'), 'email' => array('property' => 'email')), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'label' => 'User', 'name' => 'User', 'edit' => array('fields' => array(), 'form_options' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'search' => array('fields' => array()), 'disabled_actions' => array(), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'Order' => array('class' => 'AppBundle\\Entity\\Order', 'list' => array('title' => 'Order details', 'fields' => array('id' => array('property' => 'id', 'template' => NULL), 'user.name' => array('property' => 'user.name', 'label' => 'Name', 'template' => NULL), 'user.phone' => array('property' => 'user.phone', 'label' => 'Phone', 'template' => NULL), 'product.test' => array('property' => 'product.test', 'label' => 'Product Name', 'template' => NULL), 'count' => array('property' => 'count', 'label' => 'Count', 'template' => NULL), 'date' => array('property' => 'date', 'label' => 'Date', 'template' => NULL)), 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => 'Show', 'class' => '', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'Search', 'class' => '', 'icon' => NULL), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'show' => array('title' => 'Order', 'fields' => array('id' => array('property' => 'id', 'template' => NULL), 'user.name' => array('property' => 'user.name', 'label' => 'Name', 'template' => NULL), 'user.phone' => array('property' => 'user.phone', 'label' => 'Phone', 'template' => NULL), 'product.test' => array('property' => 'product.test', 'label' => 'Product', 'template' => NULL), 'count' => array('property' => 'count', 'label' => 'Count', 'template' => NULL), 'date' => array('property' => 'date', 'label' => 'Date', 'template' => NULL)), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'Delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'BACK TO LIST', 'class' => '', 'icon' => NULL))), 'label' => 'Order', 'name' => 'Order', 'edit' => array('fields' => array(), 'form_options' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'new' => array('fields' => array(), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'search' => array('fields' => array()), 'disabled_actions' => array(), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'Catagory' => array('class' => 'AppBundle\\Entity\\Category', 'list' => array('fields' => array('id' => array('property' => 'id', 'template' => NULL), 'name' => array('property' => 'name', 'template' => NULL), 'pic' => array('property' => 'pic', 'label' => 'Picture', 'type' => 'image', 'template' => NULL)), 'title' => 'Category details', 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => 'Show', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'Edit', 'class' => '', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'Search', 'class' => '', 'icon' => NULL), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'add Catagory', 'class' => '', 'icon' => NULL), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'show' => array('title' => 'Catagory', 'fields' => array('id' => array('property' => 'id', 'template' => NULL), 'name' => array('property' => 'name', 'template' => NULL), 'pic' => array('property' => 'pic', 'label' => 'Picture', 'type' => 'image', 'template' => NULL)), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'Delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'BACK TO LIST', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'Edit', 'class' => '', 'icon' => 'edit'))), 'edit' => array('title' => 'Catagory Edit', 'fields' => array('name' => array('property' => 'name'), 'pic' => array('property' => 'pic')), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'Delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'BACK TO LIST', 'class' => '', 'icon' => NULL)), 'form_options' => array()), 'label' => 'Catagory', 'name' => 'Catagory', 'new' => array('fields' => array(), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'search' => array('fields' => array()), 'disabled_actions' => array(), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'SubCatagory' => array('class' => 'AppBundle\\Entity\\SubCat', 'list' => array('fields' => array('id' => array('property' => 'id', 'template' => NULL), 'name' => array('property' => 'name', 'template' => NULL), 'atribute' => array('property' => 'atribute', 'template' => NULL), 'picture' => array('property' => 'picture', 'label' => 'Picture', 'type' => 'image', 'template' => NULL), 'catId' => array('property' => 'catId', 'label' => 'Category', 'template' => NULL)), 'title' => 'SubCatagory details', 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => 'Show', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'Edit', 'class' => '', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'Search', 'class' => '', 'icon' => NULL), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'Add Sub', 'class' => '', 'icon' => NULL), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'show' => array('title' => 'SubCatagory', 'fields' => array('id' => array('property' => 'id', 'template' => NULL), 'name' => array('property' => 'name', 'template' => NULL), 'atribute' => array('property' => 'atribute', 'template' => NULL), 'picture' => array('property' => 'picture', 'label' => 'Picture', 'type' => 'image', 'template' => NULL), 'catId' => array('property' => 'catId', 'label' => 'Category', 'template' => NULL)), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'Delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'BACK TO LIST', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'Edit', 'class' => '', 'icon' => 'edit'))), 'edit' => array('actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'Delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'BACK TO LIST', 'class' => '', 'icon' => NULL)), 'fields' => array('name' => array('property' => 'name'), 'atribute' => array('property' => 'atribute'), 'picture' => array('property' => 'picture'), 'catId' => array('property' => 'catId', 'label' => 'Category')), 'form_options' => array()), 'label' => 'SubCatagory', 'name' => 'SubCatagory', 'new' => array('fields' => array(), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'search' => array('fields' => array()), 'disabled_actions' => array(), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'Products' => array('class' => 'AppBundle\\Entity\\Product', 'list' => array('title' => 'Products details', 'fields' => array('id' => array('property' => 'id', 'template' => NULL), 'test' => array('property' => 'test', 'label' => 'Name', 'template' => NULL), 'subId' => array('property' => 'subId', 'template' => NULL), 'info' => array('property' => 'info', 'template' => NULL), 'price' => array('property' => 'price', 'template' => NULL), 'picture' => array('property' => 'picture', 'label' => 'Picture', 'type' => 'image', 'template' => NULL)), 'actions' => array('edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'Edit', 'class' => '', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'Search', 'class' => '', 'icon' => NULL), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'Add Product', 'class' => '', 'icon' => NULL), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'edit' => array('title' => 'Product Edit', 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'Delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'BACK TO LIST', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'Edit', 'class' => '', 'icon' => NULL)), 'fields' => array('test' => array('property' => 'test', 'label' => 'Name'), 'subId' => array('property' => 'subId'), 'info' => array('property' => 'info'), 'price' => array('property' => 'price'), 'picture' => array('property' => 'picture')), 'form_options' => array()), 'label' => 'Products', 'name' => 'Products', 'new' => array('fields' => array(), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'search' => array('fields' => array()), 'show' => array('fields' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'class' => '', 'icon' => 'edit'))), 'disabled_actions' => array(), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig'))), 'design' => array('assets' => array('css' => array(), 'js' => array(), 'favicon' => array('path' => 'favicon.ico', 'mime_type' => 'image/x-icon')), 'theme' => 'default', 'color_scheme' => 'dark', 'brand_color' => '#E67E22', 'form_theme' => array(0 => '@EasyAdmin/form/bootstrap_3_horizontal_layout.html.twig')), 'site_name' => 'Easy Admin', 'formats' => array('date' => 'Y-m-d', 'time' => 'H:i:s', 'datetime' => 'F j, Y H:i'), 'disabled_actions' => array(), 'list' => array('actions' => array(), 'max_results' => 15), 'edit' => array('actions' => array()), 'new' => array('actions' => array()), 'show' => array('actions' => array()), 'default_entity_name' => 'User'), new \JavierEguiluz\Bundle\EasyAdminBundle\Reflection\EntityMetadataInspector($this->get('doctrine')));
     }
 
     /**
@@ -734,7 +734,12 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getEasyadmin_Form_TypeService()
     {
-        return $this->services['easyadmin.form.type'] = new \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType($this->get('easyadmin.configurator'), array('entities' => array('User' => array('class' => 'AppBundle\\Entity\\User', 'label' => 'Users', 'list' => array('fields' => array('id' => array('property' => 'id', 'template' => NULL), 'name' => array('property' => 'name', 'template' => NULL), 'phone' => array('property' => 'phone', 'template' => NULL), 'email' => array('property' => 'email', 'label' => 'Email', 'template' => NULL), 'address.city' => array('property' => 'address.city', 'label' => 'City', 'template' => NULL), 'address.street' => array('property' => 'address.street', 'label' => 'Street', 'template' => NULL), 'address.dom' => array('property' => 'address.dom', 'label' => 'dom', 'template' => NULL)), 'title' => 'User details', 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => 'action.show', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'class' => '', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'action.search', 'class' => '', 'icon' => NULL), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'action.new', 'class' => '', 'icon' => NULL), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'new' => array('fields' => array('name' => array('property' => 'name'), 'phone' => array('property' => 'phone'), 'email' => array('property' => 'email')), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'name' => 'User', 'edit' => array('fields' => array(), 'form_options' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'search' => array('fields' => array()), 'show' => array('fields' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'class' => '', 'icon' => 'edit'))), 'disabled_actions' => array(), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'form' => '@EasyAdmin/default/form.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'Order' => array('class' => 'AppBundle\\Entity\\Order', 'title' => 'Orders details', 'list' => array('fields' => array('id' => array('property' => 'id', 'template' => NULL), 'user.name' => array('property' => 'user.name', 'label' => 'Name', 'template' => NULL), 'user.phone' => array('property' => 'user.phone', 'label' => 'Phone', 'template' => NULL), 'product.test' => array('property' => 'product.test', 'label' => 'Product', 'template' => NULL), 'count' => array('property' => 'count', 'label' => 'Count', 'template' => NULL), 'date' => array('property' => 'date', 'label' => 'Date', 'template' => NULL)), 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => 'action.show', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'class' => '', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'action.search', 'class' => '', 'icon' => NULL), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'action.new', 'class' => '', 'icon' => NULL), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'label' => 'Order', 'name' => 'Order', 'edit' => array('fields' => array(), 'form_options' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'new' => array('fields' => array(), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'search' => array('fields' => array()), 'show' => array('fields' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'class' => '', 'icon' => 'edit'))), 'disabled_actions' => array(), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'form' => '@EasyAdmin/default/form.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'Catagory' => array('class' => 'AppBundle\\Entity\\Category', 'list' => array('fields' => array('id' => array('property' => 'id', 'template' => NULL), 'name' => array('property' => 'name', 'template' => NULL), 'pic' => array('property' => 'pic', 'label' => 'Picture', 'type' => 'image', 'template' => NULL)), 'title' => 'Category details', 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => 'action.show', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'class' => '', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'action.search', 'class' => '', 'icon' => NULL), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'action.new', 'class' => '', 'icon' => NULL), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'label' => 'Catagory', 'name' => 'Catagory', 'edit' => array('fields' => array(), 'form_options' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'new' => array('fields' => array(), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'search' => array('fields' => array()), 'show' => array('fields' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'class' => '', 'icon' => 'edit'))), 'disabled_actions' => array(), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'form' => '@EasyAdmin/default/form.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'SubCatagory' => array('class' => 'AppBundle\\Entity\\SubCat', 'list' => array('fields' => array('id' => array('property' => 'id', 'template' => NULL), 'name' => array('property' => 'name', 'template' => NULL), 'atribute' => array('property' => 'atribute', 'template' => NULL), 'picture' => array('property' => 'picture', 'label' => 'Picture', 'type' => 'image', 'template' => NULL), 'catId' => array('property' => 'catId', 'label' => 'Category', 'template' => NULL)), 'title' => 'SubCatagory details', 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => 'action.show', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'class' => '', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'action.search', 'class' => '', 'icon' => NULL), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'action.new', 'class' => '', 'icon' => NULL), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'label' => 'SubCatagory', 'name' => 'SubCatagory', 'edit' => array('fields' => array(), 'form_options' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'new' => array('fields' => array(), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'search' => array('fields' => array()), 'show' => array('fields' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'class' => '', 'icon' => 'edit'))), 'disabled_actions' => array(), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'form' => '@EasyAdmin/default/form.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'Products' => array('class' => 'AppBundle\\Entity\\Product', 'list' => array('fields' => array('id' => array('property' => 'id', 'template' => NULL), 'test' => array('property' => 'test', 'label' => 'Name', 'template' => NULL), 'subId' => array('property' => 'subId', 'template' => NULL), 'info' => array('property' => 'info', 'template' => NULL), 'price' => array('property' => 'price', 'template' => NULL), 'picture' => array('property' => 'picture', 'label' => 'Picture', 'type' => 'image', 'template' => NULL)), 'title' => 'Products details', 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => 'action.show', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'class' => '', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'action.search', 'class' => '', 'icon' => NULL), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'action.new', 'class' => '', 'icon' => NULL), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'label' => 'Products', 'name' => 'Products', 'edit' => array('fields' => array(), 'form_options' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'new' => array('fields' => array(), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'search' => array('fields' => array()), 'show' => array('fields' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'class' => '', 'icon' => 'edit'))), 'disabled_actions' => array(), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'form' => '@EasyAdmin/default/form.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig'))), 'design' => array('assets' => array('css' => array(), 'js' => array()), 'theme' => 'default', 'color_scheme' => 'dark', 'brand_color' => '#E67E22', 'form_theme' => array(0 => '@EasyAdmin/form/bootstrap_3_horizontal_layout.html.twig')), 'site_name' => 'Easy Admin', 'formats' => array('date' => 'Y-m-d', 'time' => 'H:i:s', 'datetime' => 'F j, Y H:i'), 'disabled_actions' => array(), 'list' => array('actions' => array(), 'max_results' => 15), 'edit' => array('actions' => array()), 'new' => array('actions' => array()), 'show' => array('actions' => array()), 'default_entity_name' => 'User'), new \Symfony\Component\Form\FormTypeGuesserChain(array(0 => $this->get('form.type_guesser.validator'), 1 => $this->get('form.type_guesser.doctrine'))));
+        $a = $this->get('form.type_guesser.validator');
+        $b = $this->get('form.type_guesser.doctrine');
+
+        $c = new \Symfony\Component\Form\FormTypeGuesserChain(array(0 => $a, 1 => $b));
+
+        return $this->services['easyadmin.form.type'] = new \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType($this->get('easyadmin.configurator'), array('entities' => array('User' => array('class' => 'AppBundle\\Entity\\User', 'list' => array('fields' => array('id' => array('property' => 'id', 'template' => NULL), 'name' => array('property' => 'name', 'template' => NULL), 'phone' => array('property' => 'phone', 'template' => NULL), 'email' => array('property' => 'email', 'label' => 'Email', 'template' => NULL), 'city' => array('property' => 'city', 'label' => 'City', 'template' => NULL), 'street' => array('property' => 'street', 'label' => 'Street', 'template' => NULL), 'dom' => array('property' => 'dom', 'label' => 'dom', 'template' => NULL)), 'title' => 'User details', 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => 'Show', 'class' => '', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'Search', 'class' => '', 'icon' => NULL), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'show' => array('title' => 'User details', 'fields' => array('id' => array('property' => 'id', 'template' => NULL), 'name' => array('property' => 'name', 'template' => NULL), 'phone' => array('property' => 'phone', 'template' => NULL), 'email' => array('property' => 'email', 'label' => 'Email', 'template' => NULL), 'city' => array('property' => 'city', 'label' => 'City', 'template' => NULL), 'street' => array('property' => 'street', 'label' => 'Street', 'template' => NULL), 'dom' => array('property' => 'dom', 'label' => 'dom', 'template' => NULL)), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'Delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'BACK TO LIST', 'class' => '', 'icon' => NULL))), 'new' => array('fields' => array('name' => array('property' => 'name'), 'phone' => array('property' => 'phone'), 'email' => array('property' => 'email')), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'label' => 'User', 'name' => 'User', 'edit' => array('fields' => array(), 'form_options' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'search' => array('fields' => array()), 'disabled_actions' => array(), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'Order' => array('class' => 'AppBundle\\Entity\\Order', 'list' => array('title' => 'Order details', 'fields' => array('id' => array('property' => 'id', 'template' => NULL), 'user.name' => array('property' => 'user.name', 'label' => 'Name', 'template' => NULL), 'user.phone' => array('property' => 'user.phone', 'label' => 'Phone', 'template' => NULL), 'product.test' => array('property' => 'product.test', 'label' => 'Product Name', 'template' => NULL), 'count' => array('property' => 'count', 'label' => 'Count', 'template' => NULL), 'date' => array('property' => 'date', 'label' => 'Date', 'template' => NULL)), 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => 'Show', 'class' => '', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'Search', 'class' => '', 'icon' => NULL), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'show' => array('title' => 'Order', 'fields' => array('id' => array('property' => 'id', 'template' => NULL), 'user.name' => array('property' => 'user.name', 'label' => 'Name', 'template' => NULL), 'user.phone' => array('property' => 'user.phone', 'label' => 'Phone', 'template' => NULL), 'product.test' => array('property' => 'product.test', 'label' => 'Product', 'template' => NULL), 'count' => array('property' => 'count', 'label' => 'Count', 'template' => NULL), 'date' => array('property' => 'date', 'label' => 'Date', 'template' => NULL)), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'Delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'BACK TO LIST', 'class' => '', 'icon' => NULL))), 'label' => 'Order', 'name' => 'Order', 'edit' => array('fields' => array(), 'form_options' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'new' => array('fields' => array(), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'search' => array('fields' => array()), 'disabled_actions' => array(), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'Catagory' => array('class' => 'AppBundle\\Entity\\Category', 'list' => array('fields' => array('id' => array('property' => 'id', 'template' => NULL), 'name' => array('property' => 'name', 'template' => NULL), 'pic' => array('property' => 'pic', 'label' => 'Picture', 'type' => 'image', 'template' => NULL)), 'title' => 'Category details', 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => 'Show', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'Edit', 'class' => '', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'Search', 'class' => '', 'icon' => NULL), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'add Catagory', 'class' => '', 'icon' => NULL), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'show' => array('title' => 'Catagory', 'fields' => array('id' => array('property' => 'id', 'template' => NULL), 'name' => array('property' => 'name', 'template' => NULL), 'pic' => array('property' => 'pic', 'label' => 'Picture', 'type' => 'image', 'template' => NULL)), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'Delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'BACK TO LIST', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'Edit', 'class' => '', 'icon' => 'edit'))), 'edit' => array('title' => 'Catagory Edit', 'fields' => array('name' => array('property' => 'name'), 'pic' => array('property' => 'pic')), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'Delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'BACK TO LIST', 'class' => '', 'icon' => NULL)), 'form_options' => array()), 'label' => 'Catagory', 'name' => 'Catagory', 'new' => array('fields' => array(), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'search' => array('fields' => array()), 'disabled_actions' => array(), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'SubCatagory' => array('class' => 'AppBundle\\Entity\\SubCat', 'list' => array('fields' => array('id' => array('property' => 'id', 'template' => NULL), 'name' => array('property' => 'name', 'template' => NULL), 'atribute' => array('property' => 'atribute', 'template' => NULL), 'picture' => array('property' => 'picture', 'label' => 'Picture', 'type' => 'image', 'template' => NULL), 'catId' => array('property' => 'catId', 'label' => 'Category', 'template' => NULL)), 'title' => 'SubCatagory details', 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => 'Show', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'Edit', 'class' => '', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'Search', 'class' => '', 'icon' => NULL), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'Add Sub', 'class' => '', 'icon' => NULL), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'show' => array('title' => 'SubCatagory', 'fields' => array('id' => array('property' => 'id', 'template' => NULL), 'name' => array('property' => 'name', 'template' => NULL), 'atribute' => array('property' => 'atribute', 'template' => NULL), 'picture' => array('property' => 'picture', 'label' => 'Picture', 'type' => 'image', 'template' => NULL), 'catId' => array('property' => 'catId', 'label' => 'Category', 'template' => NULL)), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'Delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'BACK TO LIST', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'Edit', 'class' => '', 'icon' => 'edit'))), 'edit' => array('actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'Delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'BACK TO LIST', 'class' => '', 'icon' => NULL)), 'fields' => array('name' => array('property' => 'name'), 'atribute' => array('property' => 'atribute'), 'picture' => array('property' => 'picture'), 'catId' => array('property' => 'catId', 'label' => 'Category')), 'form_options' => array()), 'label' => 'SubCatagory', 'name' => 'SubCatagory', 'new' => array('fields' => array(), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'search' => array('fields' => array()), 'disabled_actions' => array(), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'Products' => array('class' => 'AppBundle\\Entity\\Product', 'list' => array('title' => 'Products details', 'fields' => array('id' => array('property' => 'id', 'template' => NULL), 'test' => array('property' => 'test', 'label' => 'Name', 'template' => NULL), 'subId' => array('property' => 'subId', 'template' => NULL), 'info' => array('property' => 'info', 'template' => NULL), 'price' => array('property' => 'price', 'template' => NULL), 'picture' => array('property' => 'picture', 'label' => 'Picture', 'type' => 'image', 'template' => NULL)), 'actions' => array('edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'Edit', 'class' => '', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'Search', 'class' => '', 'icon' => NULL), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'Add Product', 'class' => '', 'icon' => NULL), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'edit' => array('title' => 'Product Edit', 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'Delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'BACK TO LIST', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'Edit', 'class' => '', 'icon' => NULL)), 'fields' => array('test' => array('property' => 'test', 'label' => 'Name'), 'subId' => array('property' => 'subId'), 'info' => array('property' => 'info'), 'price' => array('property' => 'price'), 'picture' => array('property' => 'picture')), 'form_options' => array()), 'label' => 'Products', 'name' => 'Products', 'new' => array('fields' => array(), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL))), 'search' => array('fields' => array()), 'show' => array('fields' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'class' => '', 'icon' => 'trash'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'class' => '', 'icon' => NULL), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'class' => '', 'icon' => 'edit'))), 'disabled_actions' => array(), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig'))), 'design' => array('assets' => array('css' => array(), 'js' => array(), 'favicon' => array('path' => 'favicon.ico', 'mime_type' => 'image/x-icon')), 'theme' => 'default', 'color_scheme' => 'dark', 'brand_color' => '#E67E22', 'form_theme' => array(0 => '@EasyAdmin/form/bootstrap_3_horizontal_layout.html.twig')), 'site_name' => 'Easy Admin', 'formats' => array('date' => 'Y-m-d', 'time' => 'H:i:s', 'datetime' => 'F j, Y H:i'), 'disabled_actions' => array(), 'list' => array('actions' => array(), 'max_results' => 15), 'edit' => array('actions' => array()), 'new' => array('actions' => array()), 'show' => array('actions' => array()), 'default_entity_name' => 'User'), array(3 => new \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\Configurator\CollectionTypeConfigurator(), 2 => new \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\Configurator\CheckboxTypeConfigurator(), 1 => new \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\Configurator\RequiredOptionConfigurator($c), 0 => new \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\Configurator\EntityTypeConfigurator($c)));
     }
 
     /**
@@ -1460,7 +1465,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getHttpKernelService()
     {
-        return $this->services['http_kernel'] = new \Symfony\Component\HttpKernel\HttpKernel($this->get('debug.event_dispatcher'), $this->get('debug.controller_resolver'), $this->get('request_stack'), false);
+        return $this->services['http_kernel'] = new \Symfony\Component\HttpKernel\HttpKernel($this->get('debug.event_dispatcher'), $this->get('debug.controller_resolver'), $this->get('request_stack'));
     }
 
     /**
@@ -1770,6 +1775,7 @@ class appDevDebugProjectContainer extends Container
         $instance->add($this->get('data_collector.request'));
         $instance->add(new \Symfony\Component\HttpKernel\DataCollector\TimeDataCollector($b, $this->get('debug.stopwatch', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
         $instance->add(new \Symfony\Component\HttpKernel\DataCollector\MemoryDataCollector());
+        $instance->add(new \Symfony\Component\HttpKernel\DataCollector\AjaxDataCollector());
         $instance->add($this->get('data_collector.form'));
         $instance->add(new \Symfony\Component\HttpKernel\DataCollector\ExceptionDataCollector());
         $instance->add(new \Symfony\Component\HttpKernel\DataCollector\LoggerDataCollector($a));
@@ -2004,7 +2010,7 @@ class appDevDebugProjectContainer extends Container
 
         $e = new \Symfony\Component\Security\Http\AccessMap();
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($e, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => new \Symfony\Component\Security\Core\User\InMemoryUserProvider()), 'main', $a, $this->get('debug.event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE)), 2 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '5680eb598f8216.22786646', $a, $c), 3 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $e, $c)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), new \Symfony\Component\Security\Http\HttpUtils($d, $d), 'main', NULL, NULL, NULL, $a, false));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($e, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => new \Symfony\Component\Security\Core\User\InMemoryUserProvider()), 'main', $a, $this->get('debug.event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE)), 2 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '5682a2d2f423e3.55552674', $a, $c), 3 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $e, $c)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), new \Symfony\Component\Security\Http\HttpUtils($d, $d), 'main', NULL, NULL, NULL, $a, false));
     }
 
     /**
@@ -3169,7 +3175,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getWebProfiler_Controller_ProfilerService()
     {
-        return $this->services['web_profiler.controller.profiler'] = new \Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController($this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('profiler', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('twig'), array('data_collector.request' => array(0 => 'request', 1 => '@WebProfiler/Collector/request.html.twig'), 'data_collector.time' => array(0 => 'time', 1 => '@WebProfiler/Collector/time.html.twig'), 'data_collector.memory' => array(0 => 'memory', 1 => '@WebProfiler/Collector/memory.html.twig'), 'data_collector.form' => array(0 => 'form', 1 => '@WebProfiler/Collector/form.html.twig'), 'data_collector.exception' => array(0 => 'exception', 1 => '@WebProfiler/Collector/exception.html.twig'), 'data_collector.logger' => array(0 => 'logger', 1 => '@WebProfiler/Collector/logger.html.twig'), 'data_collector.events' => array(0 => 'events', 1 => '@WebProfiler/Collector/events.html.twig'), 'data_collector.router' => array(0 => 'router', 1 => '@WebProfiler/Collector/router.html.twig'), 'data_collector.security' => array(0 => 'security', 1 => '@Security/Collector/security.html.twig'), 'data_collector.twig' => array(0 => 'twig', 1 => '@WebProfiler/Collector/twig.html.twig'), 'data_collector.doctrine' => array(0 => 'db', 1 => '@Doctrine/Collector/db.html.twig'), 'swiftmailer.data_collector' => array(0 => 'swiftmailer', 1 => '@Swiftmailer/Collector/swiftmailer.html.twig'), 'data_collector.dump' => array(0 => 'dump', 1 => '@Debug/Profiler/dump.html.twig'), 'easyadmin.data_collector' => array(0 => 'easyadmin', 1 => '@EasyAdmin/data_collector/easyadmin.html.twig'), 'data_collector.config' => array(0 => 'config', 1 => '@WebProfiler/Collector/config.html.twig')), 'bottom');
+        return $this->services['web_profiler.controller.profiler'] = new \Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController($this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('profiler', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('twig'), array('data_collector.request' => array(0 => 'request', 1 => '@WebProfiler/Collector/request.html.twig'), 'data_collector.time' => array(0 => 'time', 1 => '@WebProfiler/Collector/time.html.twig'), 'data_collector.memory' => array(0 => 'memory', 1 => '@WebProfiler/Collector/memory.html.twig'), 'data_collector.ajax' => array(0 => 'ajax', 1 => '@WebProfiler/Collector/ajax.html.twig'), 'data_collector.form' => array(0 => 'form', 1 => '@WebProfiler/Collector/form.html.twig'), 'data_collector.exception' => array(0 => 'exception', 1 => '@WebProfiler/Collector/exception.html.twig'), 'data_collector.logger' => array(0 => 'logger', 1 => '@WebProfiler/Collector/logger.html.twig'), 'data_collector.events' => array(0 => 'events', 1 => '@WebProfiler/Collector/events.html.twig'), 'data_collector.router' => array(0 => 'router', 1 => '@WebProfiler/Collector/router.html.twig'), 'data_collector.security' => array(0 => 'security', 1 => '@Security/Collector/security.html.twig'), 'data_collector.twig' => array(0 => 'twig', 1 => '@WebProfiler/Collector/twig.html.twig'), 'data_collector.doctrine' => array(0 => 'db', 1 => '@Doctrine/Collector/db.html.twig'), 'swiftmailer.data_collector' => array(0 => 'swiftmailer', 1 => '@Swiftmailer/Collector/swiftmailer.html.twig'), 'data_collector.dump' => array(0 => 'dump', 1 => '@Debug/Profiler/dump.html.twig'), 'easyadmin.data_collector' => array(0 => 'easyadmin', 1 => '@EasyAdmin/data_collector/easyadmin.html.twig'), 'data_collector.config' => array(0 => 'config', 1 => '@WebProfiler/Collector/config.html.twig')), 'bottom');
     }
 
     /**
@@ -3286,7 +3292,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_Authentication_ManagerService()
     {
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('5680eb598f8216.22786646')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('5682a2d2f423e3.55552674')), true);
 
         $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
 
@@ -3773,7 +3779,6 @@ class appDevDebugProjectContainer extends Container
                 'entities' => array(
                     'User' => array(
                         'class' => 'AppBundle\\Entity\\User',
-                        'label' => 'Users',
                         'list' => array(
                             'fields' => array(
                                 'id' => array(
@@ -3793,18 +3798,18 @@ class appDevDebugProjectContainer extends Container
                                     'label' => 'Email',
                                     'template' => NULL,
                                 ),
-                                'address.city' => array(
-                                    'property' => 'address.city',
+                                'city' => array(
+                                    'property' => 'city',
                                     'label' => 'City',
                                     'template' => NULL,
                                 ),
-                                'address.street' => array(
-                                    'property' => 'address.street',
+                                'street' => array(
+                                    'property' => 'street',
                                     'label' => 'Street',
                                     'template' => NULL,
                                 ),
-                                'address.dom' => array(
-                                    'property' => 'address.dom',
+                                'dom' => array(
+                                    'property' => 'dom',
                                     'label' => 'dom',
                                     'template' => NULL,
                                 ),
@@ -3814,28 +3819,14 @@ class appDevDebugProjectContainer extends Container
                                 'show' => array(
                                     'name' => 'show',
                                     'type' => 'method',
-                                    'label' => 'action.show',
-                                    'class' => '',
-                                    'icon' => NULL,
-                                ),
-                                'edit' => array(
-                                    'name' => 'edit',
-                                    'type' => 'method',
-                                    'label' => 'action.edit',
+                                    'label' => 'Show',
                                     'class' => '',
                                     'icon' => NULL,
                                 ),
                                 'search' => array(
                                     'name' => 'search',
                                     'type' => 'method',
-                                    'label' => 'action.search',
-                                    'class' => '',
-                                    'icon' => NULL,
-                                ),
-                                'new' => array(
-                                    'name' => 'new',
-                                    'type' => 'method',
-                                    'label' => 'action.new',
+                                    'label' => 'Search',
                                     'class' => '',
                                     'icon' => NULL,
                                 ),
@@ -3843,6 +3834,59 @@ class appDevDebugProjectContainer extends Container
                                     'name' => 'list',
                                     'type' => 'method',
                                     'label' => 'action.list',
+                                    'class' => '',
+                                    'icon' => NULL,
+                                ),
+                            ),
+                        ),
+                        'show' => array(
+                            'title' => 'User details',
+                            'fields' => array(
+                                'id' => array(
+                                    'property' => 'id',
+                                    'template' => NULL,
+                                ),
+                                'name' => array(
+                                    'property' => 'name',
+                                    'template' => NULL,
+                                ),
+                                'phone' => array(
+                                    'property' => 'phone',
+                                    'template' => NULL,
+                                ),
+                                'email' => array(
+                                    'property' => 'email',
+                                    'label' => 'Email',
+                                    'template' => NULL,
+                                ),
+                                'city' => array(
+                                    'property' => 'city',
+                                    'label' => 'City',
+                                    'template' => NULL,
+                                ),
+                                'street' => array(
+                                    'property' => 'street',
+                                    'label' => 'Street',
+                                    'template' => NULL,
+                                ),
+                                'dom' => array(
+                                    'property' => 'dom',
+                                    'label' => 'dom',
+                                    'template' => NULL,
+                                ),
+                            ),
+                            'actions' => array(
+                                'delete' => array(
+                                    'name' => 'delete',
+                                    'type' => 'method',
+                                    'label' => 'Delete',
+                                    'class' => '',
+                                    'icon' => 'trash',
+                                ),
+                                'list' => array(
+                                    'name' => 'list',
+                                    'type' => 'method',
+                                    'label' => 'BACK TO LIST',
                                     'class' => '',
                                     'icon' => NULL,
                                 ),
@@ -3873,6 +3917,7 @@ class appDevDebugProjectContainer extends Container
                                 ),
                             ),
                         ),
+                        'label' => 'User',
                         'name' => 'User',
                         'edit' => array(
                             'fields' => array(
@@ -3903,34 +3948,6 @@ class appDevDebugProjectContainer extends Container
 
                             ),
                         ),
-                        'show' => array(
-                            'fields' => array(
-
-                            ),
-                            'actions' => array(
-                                'delete' => array(
-                                    'name' => 'delete',
-                                    'type' => 'method',
-                                    'label' => 'action.delete',
-                                    'class' => '',
-                                    'icon' => 'trash',
-                                ),
-                                'list' => array(
-                                    'name' => 'list',
-                                    'type' => 'method',
-                                    'label' => 'action.list',
-                                    'class' => '',
-                                    'icon' => NULL,
-                                ),
-                                'edit' => array(
-                                    'name' => 'edit',
-                                    'type' => 'method',
-                                    'label' => 'action.edit',
-                                    'class' => '',
-                                    'icon' => 'edit',
-                                ),
-                            ),
-                        ),
                         'disabled_actions' => array(
 
                         ),
@@ -3940,7 +3957,6 @@ class appDevDebugProjectContainer extends Container
                             'list' => '@EasyAdmin/default/list.html.twig',
                             'new' => '@EasyAdmin/default/new.html.twig',
                             'show' => '@EasyAdmin/default/show.html.twig',
-                            'form' => '@EasyAdmin/default/form.html.twig',
                             'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig',
                             'paginator' => '@EasyAdmin/default/paginator.html.twig',
                             'field_array' => '@EasyAdmin/default/field_array.html.twig',
@@ -3973,8 +3989,65 @@ class appDevDebugProjectContainer extends Container
                     ),
                     'Order' => array(
                         'class' => 'AppBundle\\Entity\\Order',
-                        'title' => 'Orders details',
                         'list' => array(
+                            'title' => 'Order details',
+                            'fields' => array(
+                                'id' => array(
+                                    'property' => 'id',
+                                    'template' => NULL,
+                                ),
+                                'user.name' => array(
+                                    'property' => 'user.name',
+                                    'label' => 'Name',
+                                    'template' => NULL,
+                                ),
+                                'user.phone' => array(
+                                    'property' => 'user.phone',
+                                    'label' => 'Phone',
+                                    'template' => NULL,
+                                ),
+                                'product.test' => array(
+                                    'property' => 'product.test',
+                                    'label' => 'Product Name',
+                                    'template' => NULL,
+                                ),
+                                'count' => array(
+                                    'property' => 'count',
+                                    'label' => 'Count',
+                                    'template' => NULL,
+                                ),
+                                'date' => array(
+                                    'property' => 'date',
+                                    'label' => 'Date',
+                                    'template' => NULL,
+                                ),
+                            ),
+                            'actions' => array(
+                                'show' => array(
+                                    'name' => 'show',
+                                    'type' => 'method',
+                                    'label' => 'Show',
+                                    'class' => '',
+                                    'icon' => NULL,
+                                ),
+                                'search' => array(
+                                    'name' => 'search',
+                                    'type' => 'method',
+                                    'label' => 'Search',
+                                    'class' => '',
+                                    'icon' => NULL,
+                                ),
+                                'list' => array(
+                                    'name' => 'list',
+                                    'type' => 'method',
+                                    'label' => 'action.list',
+                                    'class' => '',
+                                    'icon' => NULL,
+                                ),
+                            ),
+                        ),
+                        'show' => array(
+                            'title' => 'Order',
                             'fields' => array(
                                 'id' => array(
                                     'property' => 'id',
@@ -4007,38 +4080,17 @@ class appDevDebugProjectContainer extends Container
                                 ),
                             ),
                             'actions' => array(
-                                'show' => array(
-                                    'name' => 'show',
+                                'delete' => array(
+                                    'name' => 'delete',
                                     'type' => 'method',
-                                    'label' => 'action.show',
+                                    'label' => 'Delete',
                                     'class' => '',
-                                    'icon' => NULL,
-                                ),
-                                'edit' => array(
-                                    'name' => 'edit',
-                                    'type' => 'method',
-                                    'label' => 'action.edit',
-                                    'class' => '',
-                                    'icon' => NULL,
-                                ),
-                                'search' => array(
-                                    'name' => 'search',
-                                    'type' => 'method',
-                                    'label' => 'action.search',
-                                    'class' => '',
-                                    'icon' => NULL,
-                                ),
-                                'new' => array(
-                                    'name' => 'new',
-                                    'type' => 'method',
-                                    'label' => 'action.new',
-                                    'class' => '',
-                                    'icon' => NULL,
+                                    'icon' => 'trash',
                                 ),
                                 'list' => array(
                                     'name' => 'list',
                                     'type' => 'method',
-                                    'label' => 'action.list',
+                                    'label' => 'BACK TO LIST',
                                     'class' => '',
                                     'icon' => NULL,
                                 ),
@@ -4092,34 +4144,6 @@ class appDevDebugProjectContainer extends Container
 
                             ),
                         ),
-                        'show' => array(
-                            'fields' => array(
-
-                            ),
-                            'actions' => array(
-                                'delete' => array(
-                                    'name' => 'delete',
-                                    'type' => 'method',
-                                    'label' => 'action.delete',
-                                    'class' => '',
-                                    'icon' => 'trash',
-                                ),
-                                'list' => array(
-                                    'name' => 'list',
-                                    'type' => 'method',
-                                    'label' => 'action.list',
-                                    'class' => '',
-                                    'icon' => NULL,
-                                ),
-                                'edit' => array(
-                                    'name' => 'edit',
-                                    'type' => 'method',
-                                    'label' => 'action.edit',
-                                    'class' => '',
-                                    'icon' => 'edit',
-                                ),
-                            ),
-                        ),
                         'disabled_actions' => array(
 
                         ),
@@ -4129,7 +4153,6 @@ class appDevDebugProjectContainer extends Container
                             'list' => '@EasyAdmin/default/list.html.twig',
                             'new' => '@EasyAdmin/default/new.html.twig',
                             'show' => '@EasyAdmin/default/show.html.twig',
-                            'form' => '@EasyAdmin/default/form.html.twig',
                             'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig',
                             'paginator' => '@EasyAdmin/default/paginator.html.twig',
                             'field_array' => '@EasyAdmin/default/field_array.html.twig',
@@ -4184,28 +4207,28 @@ class appDevDebugProjectContainer extends Container
                                 'show' => array(
                                     'name' => 'show',
                                     'type' => 'method',
-                                    'label' => 'action.show',
+                                    'label' => 'Show',
                                     'class' => '',
                                     'icon' => NULL,
                                 ),
                                 'edit' => array(
                                     'name' => 'edit',
                                     'type' => 'method',
-                                    'label' => 'action.edit',
+                                    'label' => 'Edit',
                                     'class' => '',
                                     'icon' => NULL,
                                 ),
                                 'search' => array(
                                     'name' => 'search',
                                     'type' => 'method',
-                                    'label' => 'action.search',
+                                    'label' => 'Search',
                                     'class' => '',
                                     'icon' => NULL,
                                 ),
                                 'new' => array(
                                     'name' => 'new',
                                     'type' => 'method',
-                                    'label' => 'action.new',
+                                    'label' => 'add Catagory',
                                     'class' => '',
                                     'icon' => NULL,
                                 ),
@@ -4218,32 +4241,80 @@ class appDevDebugProjectContainer extends Container
                                 ),
                             ),
                         ),
-                        'label' => 'Catagory',
-                        'name' => 'Catagory',
-                        'edit' => array(
+                        'show' => array(
+                            'title' => 'Catagory',
                             'fields' => array(
-
-                            ),
-                            'form_options' => array(
-
+                                'id' => array(
+                                    'property' => 'id',
+                                    'template' => NULL,
+                                ),
+                                'name' => array(
+                                    'property' => 'name',
+                                    'template' => NULL,
+                                ),
+                                'pic' => array(
+                                    'property' => 'pic',
+                                    'label' => 'Picture',
+                                    'type' => 'image',
+                                    'template' => NULL,
+                                ),
                             ),
                             'actions' => array(
                                 'delete' => array(
                                     'name' => 'delete',
                                     'type' => 'method',
-                                    'label' => 'action.delete',
+                                    'label' => 'Delete',
                                     'class' => '',
                                     'icon' => 'trash',
                                 ),
                                 'list' => array(
                                     'name' => 'list',
                                     'type' => 'method',
-                                    'label' => 'action.list',
+                                    'label' => 'BACK TO LIST',
+                                    'class' => '',
+                                    'icon' => NULL,
+                                ),
+                                'edit' => array(
+                                    'name' => 'edit',
+                                    'type' => 'method',
+                                    'label' => 'Edit',
+                                    'class' => '',
+                                    'icon' => 'edit',
+                                ),
+                            ),
+                        ),
+                        'edit' => array(
+                            'title' => 'Catagory Edit',
+                            'fields' => array(
+                                'name' => array(
+                                    'property' => 'name',
+                                ),
+                                'pic' => array(
+                                    'property' => 'pic',
+                                ),
+                            ),
+                            'actions' => array(
+                                'delete' => array(
+                                    'name' => 'delete',
+                                    'type' => 'method',
+                                    'label' => 'Delete',
+                                    'class' => '',
+                                    'icon' => 'trash',
+                                ),
+                                'list' => array(
+                                    'name' => 'list',
+                                    'type' => 'method',
+                                    'label' => 'BACK TO LIST',
                                     'class' => '',
                                     'icon' => NULL,
                                 ),
                             ),
+                            'form_options' => array(
+
+                            ),
                         ),
+                        'label' => 'Catagory',
+                        'name' => 'Catagory',
                         'new' => array(
                             'fields' => array(
 
@@ -4266,34 +4337,6 @@ class appDevDebugProjectContainer extends Container
 
                             ),
                         ),
-                        'show' => array(
-                            'fields' => array(
-
-                            ),
-                            'actions' => array(
-                                'delete' => array(
-                                    'name' => 'delete',
-                                    'type' => 'method',
-                                    'label' => 'action.delete',
-                                    'class' => '',
-                                    'icon' => 'trash',
-                                ),
-                                'list' => array(
-                                    'name' => 'list',
-                                    'type' => 'method',
-                                    'label' => 'action.list',
-                                    'class' => '',
-                                    'icon' => NULL,
-                                ),
-                                'edit' => array(
-                                    'name' => 'edit',
-                                    'type' => 'method',
-                                    'label' => 'action.edit',
-                                    'class' => '',
-                                    'icon' => 'edit',
-                                ),
-                            ),
-                        ),
                         'disabled_actions' => array(
 
                         ),
@@ -4303,7 +4346,6 @@ class appDevDebugProjectContainer extends Container
                             'list' => '@EasyAdmin/default/list.html.twig',
                             'new' => '@EasyAdmin/default/new.html.twig',
                             'show' => '@EasyAdmin/default/show.html.twig',
-                            'form' => '@EasyAdmin/default/form.html.twig',
                             'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig',
                             'paginator' => '@EasyAdmin/default/paginator.html.twig',
                             'field_array' => '@EasyAdmin/default/field_array.html.twig',
@@ -4367,28 +4409,28 @@ class appDevDebugProjectContainer extends Container
                                 'show' => array(
                                     'name' => 'show',
                                     'type' => 'method',
-                                    'label' => 'action.show',
+                                    'label' => 'Show',
                                     'class' => '',
                                     'icon' => NULL,
                                 ),
                                 'edit' => array(
                                     'name' => 'edit',
                                     'type' => 'method',
-                                    'label' => 'action.edit',
+                                    'label' => 'Edit',
                                     'class' => '',
                                     'icon' => NULL,
                                 ),
                                 'search' => array(
                                     'name' => 'search',
                                     'type' => 'method',
-                                    'label' => 'action.search',
+                                    'label' => 'Search',
                                     'class' => '',
                                     'icon' => NULL,
                                 ),
                                 'new' => array(
                                     'name' => 'new',
                                     'type' => 'method',
-                                    'label' => 'action.new',
+                                    'label' => 'Add Sub',
                                     'class' => '',
                                     'icon' => NULL,
                                 ),
@@ -4401,32 +4443,95 @@ class appDevDebugProjectContainer extends Container
                                 ),
                             ),
                         ),
-                        'label' => 'SubCatagory',
-                        'name' => 'SubCatagory',
-                        'edit' => array(
+                        'show' => array(
+                            'title' => 'SubCatagory',
                             'fields' => array(
-
-                            ),
-                            'form_options' => array(
-
+                                'id' => array(
+                                    'property' => 'id',
+                                    'template' => NULL,
+                                ),
+                                'name' => array(
+                                    'property' => 'name',
+                                    'template' => NULL,
+                                ),
+                                'atribute' => array(
+                                    'property' => 'atribute',
+                                    'template' => NULL,
+                                ),
+                                'picture' => array(
+                                    'property' => 'picture',
+                                    'label' => 'Picture',
+                                    'type' => 'image',
+                                    'template' => NULL,
+                                ),
+                                'catId' => array(
+                                    'property' => 'catId',
+                                    'label' => 'Category',
+                                    'template' => NULL,
+                                ),
                             ),
                             'actions' => array(
                                 'delete' => array(
                                     'name' => 'delete',
                                     'type' => 'method',
-                                    'label' => 'action.delete',
+                                    'label' => 'Delete',
                                     'class' => '',
                                     'icon' => 'trash',
                                 ),
                                 'list' => array(
                                     'name' => 'list',
                                     'type' => 'method',
-                                    'label' => 'action.list',
+                                    'label' => 'BACK TO LIST',
+                                    'class' => '',
+                                    'icon' => NULL,
+                                ),
+                                'edit' => array(
+                                    'name' => 'edit',
+                                    'type' => 'method',
+                                    'label' => 'Edit',
+                                    'class' => '',
+                                    'icon' => 'edit',
+                                ),
+                            ),
+                        ),
+                        'edit' => array(
+                            'actions' => array(
+                                'delete' => array(
+                                    'name' => 'delete',
+                                    'type' => 'method',
+                                    'label' => 'Delete',
+                                    'class' => '',
+                                    'icon' => 'trash',
+                                ),
+                                'list' => array(
+                                    'name' => 'list',
+                                    'type' => 'method',
+                                    'label' => 'BACK TO LIST',
                                     'class' => '',
                                     'icon' => NULL,
                                 ),
                             ),
+                            'fields' => array(
+                                'name' => array(
+                                    'property' => 'name',
+                                ),
+                                'atribute' => array(
+                                    'property' => 'atribute',
+                                ),
+                                'picture' => array(
+                                    'property' => 'picture',
+                                ),
+                                'catId' => array(
+                                    'property' => 'catId',
+                                    'label' => 'Category',
+                                ),
+                            ),
+                            'form_options' => array(
+
+                            ),
                         ),
+                        'label' => 'SubCatagory',
+                        'name' => 'SubCatagory',
                         'new' => array(
                             'fields' => array(
 
@@ -4449,34 +4554,6 @@ class appDevDebugProjectContainer extends Container
 
                             ),
                         ),
-                        'show' => array(
-                            'fields' => array(
-
-                            ),
-                            'actions' => array(
-                                'delete' => array(
-                                    'name' => 'delete',
-                                    'type' => 'method',
-                                    'label' => 'action.delete',
-                                    'class' => '',
-                                    'icon' => 'trash',
-                                ),
-                                'list' => array(
-                                    'name' => 'list',
-                                    'type' => 'method',
-                                    'label' => 'action.list',
-                                    'class' => '',
-                                    'icon' => NULL,
-                                ),
-                                'edit' => array(
-                                    'name' => 'edit',
-                                    'type' => 'method',
-                                    'label' => 'action.edit',
-                                    'class' => '',
-                                    'icon' => 'edit',
-                                ),
-                            ),
-                        ),
                         'disabled_actions' => array(
 
                         ),
@@ -4486,7 +4563,6 @@ class appDevDebugProjectContainer extends Container
                             'list' => '@EasyAdmin/default/list.html.twig',
                             'new' => '@EasyAdmin/default/new.html.twig',
                             'show' => '@EasyAdmin/default/show.html.twig',
-                            'form' => '@EasyAdmin/default/form.html.twig',
                             'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig',
                             'paginator' => '@EasyAdmin/default/paginator.html.twig',
                             'field_array' => '@EasyAdmin/default/field_array.html.twig',
@@ -4520,6 +4596,7 @@ class appDevDebugProjectContainer extends Container
                     'Products' => array(
                         'class' => 'AppBundle\\Entity\\Product',
                         'list' => array(
+                            'title' => 'Products details',
                             'fields' => array(
                                 'id' => array(
                                     'property' => 'id',
@@ -4549,33 +4626,25 @@ class appDevDebugProjectContainer extends Container
                                     'template' => NULL,
                                 ),
                             ),
-                            'title' => 'Products details',
                             'actions' => array(
-                                'show' => array(
-                                    'name' => 'show',
-                                    'type' => 'method',
-                                    'label' => 'action.show',
-                                    'class' => '',
-                                    'icon' => NULL,
-                                ),
                                 'edit' => array(
                                     'name' => 'edit',
                                     'type' => 'method',
-                                    'label' => 'action.edit',
+                                    'label' => 'Edit',
                                     'class' => '',
                                     'icon' => NULL,
                                 ),
                                 'search' => array(
                                     'name' => 'search',
                                     'type' => 'method',
-                                    'label' => 'action.search',
+                                    'label' => 'Search',
                                     'class' => '',
                                     'icon' => NULL,
                                 ),
                                 'new' => array(
                                     'name' => 'new',
                                     'type' => 'method',
-                                    'label' => 'action.new',
+                                    'label' => 'Add Product',
                                     'class' => '',
                                     'icon' => NULL,
                                 ),
@@ -4588,32 +4657,55 @@ class appDevDebugProjectContainer extends Container
                                 ),
                             ),
                         ),
-                        'label' => 'Products',
-                        'name' => 'Products',
                         'edit' => array(
-                            'fields' => array(
-
-                            ),
-                            'form_options' => array(
-
-                            ),
+                            'title' => 'Product Edit',
                             'actions' => array(
                                 'delete' => array(
                                     'name' => 'delete',
                                     'type' => 'method',
-                                    'label' => 'action.delete',
+                                    'label' => 'Delete',
                                     'class' => '',
                                     'icon' => 'trash',
                                 ),
                                 'list' => array(
                                     'name' => 'list',
                                     'type' => 'method',
-                                    'label' => 'action.list',
+                                    'label' => 'BACK TO LIST',
+                                    'class' => '',
+                                    'icon' => NULL,
+                                ),
+                                'edit' => array(
+                                    'name' => 'edit',
+                                    'type' => 'method',
+                                    'label' => 'Edit',
                                     'class' => '',
                                     'icon' => NULL,
                                 ),
                             ),
+                            'fields' => array(
+                                'test' => array(
+                                    'property' => 'test',
+                                    'label' => 'Name',
+                                ),
+                                'subId' => array(
+                                    'property' => 'subId',
+                                ),
+                                'info' => array(
+                                    'property' => 'info',
+                                ),
+                                'price' => array(
+                                    'property' => 'price',
+                                ),
+                                'picture' => array(
+                                    'property' => 'picture',
+                                ),
+                            ),
+                            'form_options' => array(
+
+                            ),
                         ),
+                        'label' => 'Products',
+                        'name' => 'Products',
                         'new' => array(
                             'fields' => array(
 
@@ -4673,7 +4765,6 @@ class appDevDebugProjectContainer extends Container
                             'list' => '@EasyAdmin/default/list.html.twig',
                             'new' => '@EasyAdmin/default/new.html.twig',
                             'show' => '@EasyAdmin/default/show.html.twig',
-                            'form' => '@EasyAdmin/default/form.html.twig',
                             'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig',
                             'paginator' => '@EasyAdmin/default/paginator.html.twig',
                             'field_array' => '@EasyAdmin/default/field_array.html.twig',
@@ -4712,6 +4803,10 @@ class appDevDebugProjectContainer extends Container
                         ),
                         'js' => array(
 
+                        ),
+                        'favicon' => array(
+                            'path' => 'favicon.ico',
+                            'mime_type' => 'image/x-icon',
                         ),
                     ),
                     'theme' => 'default',
@@ -4768,6 +4863,10 @@ class appDevDebugProjectContainer extends Container
                 'data_collector.memory' => array(
                     0 => 'memory',
                     1 => '@WebProfiler/Collector/memory.html.twig',
+                ),
+                'data_collector.ajax' => array(
+                    0 => 'ajax',
+                    1 => '@WebProfiler/Collector/ajax.html.twig',
                 ),
                 'data_collector.form' => array(
                     0 => 'form',

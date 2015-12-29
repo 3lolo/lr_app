@@ -137,14 +137,26 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // app_catalog_addorder
-        if (0 === strpos($pathinfo, '/addOrder') && preg_match('#^/addOrder/(?P<user_id>[^/]++)/(?P<product_id>[^/]++)/(?P<count>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'app_catalog_addorder')), array (  '_controller' => 'AppBundle\\Controller\\CatalogController::addOrderAction',));
+        if (0 === strpos($pathinfo, '/a')) {
+            // app_catalog_addorder
+            if (0 === strpos($pathinfo, '/addOrder') && preg_match('#^/addOrder/(?P<user_id>[^/]++)/(?P<product_id>[^/]++)/(?P<count>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'app_catalog_addorder')), array (  '_controller' => 'AppBundle\\Controller\\CatalogController::addOrderAction',));
+            }
+
+            // app_catalog_allproducts
+            if (rtrim($pathinfo, '/') === '/allProducts') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'app_catalog_allproducts');
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\CatalogController::allProductsAction',  '_route' => 'app_catalog_allproducts',);
+            }
+
         }
 
-        // app_default_index
-        if ($pathinfo === '/test') {
-            return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'app_default_index',);
+        // app_default_getproduct
+        if (0 === strpos($pathinfo, '/test') && preg_match('#^/test/(?P<subId>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'app_default_getproduct')), array (  '_controller' => 'AppBundle\\Controller\\DefaultController::getProductAction',));
         }
 
         // app_user_add

@@ -11,12 +11,10 @@
 
 namespace JavierEguiluz\Bundle\EasyAdminBundle\Form\Type;
 
-use Doctrine\ORM\Mapping\ClassMetadata;
+use JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\Configurator\TypeConfiguratorInterface;
 use JavierEguiluz\Bundle\EasyAdminBundle\Configuration\Configurator;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormTypeGuesserInterface;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -35,19 +33,19 @@ class EasyAdminFormType extends AbstractType
     /** @var array */
     private $config;
 
-    /** @var FormTypeGuesserInterface */
-    private $guesser;
+    /** @var TypeConfiguratorInterface[] */
+    private $configurators;
 
     /**
-     * @param Configurator             $configurator
-     * @param array                    $config
-     * @param FormTypeGuesserInterface $guesser
+     * @param Configurator                $configurator
+     * @param array                       $config
+     * @param TypeConfiguratorInterface[] $configurators
      */
-    public function __construct(Configurator $configurator, array $config, FormTypeGuesserInterface $guesser)
+    public function __construct(Configurator $configurator, array $config, array $configurators = array())
     {
         $this->configurator = $configurator;
         $this->config = $config;
-        $this->guesser = $guesser;
+        $this->configurators = $configurators;
     }
 
     /**
@@ -63,42 +61,12 @@ class EasyAdminFormType extends AbstractType
         foreach ($entityProperties as $name => $metadata) {
             $formFieldOptions = $metadata['type_options'];
 
-            if ('association' === $metadata['type']) {
-                if ($metadata['associationType'] & ClassMetadata::TO_MANY) {
-                    $formFieldOptions['attr']['multiple'] = true;
-                }
-
-                // supported associations are displayed using advanced JavaScript widgets
-                $formFieldOptions['attr']['data-widget'] = 'select2';
-            }
-
-            if ('collection' === $metadata['fieldType']) {
-                if (!isset($formFieldOptions['allow_add'])) {
-                    $formFieldOptions['allow_add'] = true;
-                }
-
-                if (!isset($formFieldOptions['allow_delete'])) {
-                    $formFieldOptions['allow_delete'] = true;
-                }
-
-                if (version_compare(Kernel::VERSION, '2.5.0', '>=')) {
-                    if (!isset($formFieldOptions['delete_empty'])) {
-                        $formFieldOptions['delete_empty'] = true;
-                    }
-                }
-            } elseif ('checkbox' === $metadata['fieldType'] && !isset($formFieldOptions['required'])) {
-                $formFieldOptions['required'] = false;
-            }
-
-            if (!isset($formFieldOptions['required'])) {
-                if (null !== $guessRequired = $this->guesser->guessRequired($builder->getOption('data_class'), $name)) {
-                    $formFieldOptions['required'] = $guessRequired->getValue();
+            // Configure options using the list of registered type configurators:
+            foreach ($this->configurators as $configurator) {
+                if ($configurator->supports($metadata['fieldType'], $formFieldOptions, $metadata)) {
+                    $formFieldOptions = $configurator->configure($name, $formFieldOptions, $metadata, $builder);
                 }
             }
-
-            $formFieldOptions['attr']['field_type'] = $metadata['fieldType'];
-            $formFieldOptions['attr']['field_css_class'] = $metadata['class'];
-            $formFieldOptions['attr']['field_help'] = $metadata['help'];
 
             $formFieldType = $this->useLegacyFormComponent() ? $metadata['fieldType'] : $this->getFormTypeFqcn($metadata['fieldType']);
             $builder->add($name, $formFieldType, $formFieldOptions);
@@ -111,7 +79,6 @@ class EasyAdminFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $configurator = $this->configurator;
-        $config = $this->config;
 
         $resolver
             ->setDefaults(array(
@@ -126,9 +93,9 @@ class EasyAdminFormType extends AbstractType
             ->setRequired(array('entity', 'view'));
 
         if ($this->useLegacyFormComponent()) {
-            $resolver->setNormalizers(array('attr' => $this->getAttributesNormalizer($config)));
+            $resolver->setNormalizers(array('attr' => $this->getAttributesNormalizer($this->config)));
         } else {
-            $resolver->setNormalizer('attr', $this->getAttributesNormalizer($config));
+            $resolver->setNormalizer('attr', $this->getAttributesNormalizer($this->config));
         }
     }
 
@@ -176,7 +143,7 @@ class EasyAdminFormType extends AbstractType
     }
 
     /**
-     * It returns the FQCN of the given short type.
+     * It returns the FQCN of the given short type name.
      * Example: 'text' -> 'Symfony\Component\Form\Extension\Core\Type\TextType'
      *
      * @param string $shortType
@@ -185,23 +152,28 @@ class EasyAdminFormType extends AbstractType
      */
     private function getFormTypeFqcn($shortType)
     {
-        $typeNames = array(
-            'base', 'birthday', 'button', 'checkbox', 'choice', 'collection',
-            'country', 'currency', 'datetime', 'date', 'email', 'file', 'form',
-            'hidden', 'integer', 'language', 'money', 'number', 'password',
-            'percent', 'radio', 'repeated', 'reset', 'search', 'submit',
-            'textarea', 'text', 'time', 'timezone', 'url',
+        $builtinTypes = array(
+            'birthday', 'button', 'checkbox', 'choice', 'collection', 'country',
+            'currency', 'datetime', 'date', 'email', 'entity', 'file', 'form',
+            'hidden', 'integer', 'language', 'locale', 'money', 'number',
+            'password', 'percent', 'radio', 'range', 'repeated', 'reset',
+            'search', 'submit', 'textarea', 'text', 'time', 'timezone', 'url',
         );
 
-        if (!in_array($shortType, $typeNames)) {
+        if (!in_array($shortType, $builtinTypes)) {
             return $shortType;
         }
 
-        // take into account the irregular class name for 'datetime' type
-        $typeClassName = 'datetime' === $shortType ? 'DateTime' : ucfirst($shortType);
-        $typeFqcn = sprintf('Symfony\\Component\\Form\\Extension\\Core\\Type\\%sType', $typeClassName);
+        $irregularTypeFqcn = array(
+            'entity' => 'Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType',
+            'datetime' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\DateTimeType',
+        );
 
-        return $typeFqcn;
+        if (array_key_exists($shortType, $irregularTypeFqcn)) {
+            return $irregularTypeFqcn[$shortType];
+        }
+
+        return sprintf('Symfony\\Component\\Form\\Extension\\Core\\Type\\%sType', ucfirst($shortType));
     }
 
     /**

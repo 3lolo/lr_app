@@ -52,9 +52,11 @@ class User
 
 
 
+    function __construct() {
 
+    }
 
-
+/*
     function __construct($name,$password,$phone,$email,$city,$street,$flat,$dom) {
         $this->phone    =   $phone;
         $this->name     =   $name;
@@ -65,7 +67,7 @@ class User
         $this->flat     =   $flat;
         $this->dom      =   $dom;
     }
-
+*/
 
 /**
      * @return mixed
@@ -76,7 +78,7 @@ class User
     }
 
     /**
-     * @param mixed $email
+     * @param mixed $city
      */
     public function setCity($city)
     {
@@ -123,7 +125,7 @@ class User
     }
 
     /**
-     * @param mixed $email
+     * @param mixed $flat
      */
     public function setFlat($flat)
     {

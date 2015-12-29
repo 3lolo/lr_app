@@ -20,8 +20,6 @@
             <argument type="service" id="doctrine" />
         </service>
 
-        <service id="easyadmin.property_reflector" class="JavierEguiluz\Bundle\EasyAdminBundle\Reflection\ClassPropertyReflector" public="false" />
-
         <service id="easyadmin.listener.exception" class="JavierEguiluz\Bundle\EasyAdminBundle\EventListener\ExceptionListener">
             <argument type="service" id="templating" />
             <argument type="string">easyadmin.listener.exception:showExceptionPageAction</argument>
@@ -33,18 +31,6 @@
         <service id="easyadmin.data_collector" class="JavierEguiluz\Bundle\EasyAdminBundle\DataCollector\EasyAdminDataCollector" public="false">
             <argument type="service" id="easyadmin.configurator" />
             <tag name="data_collector" template="@EasyAdmin/data_collector/easyadmin.html.twig" id="easyadmin" />
-        </service>
-
-        <service id="easyadmin.form.type" class="JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType">
-            <argument type="service" id="easyadmin.configurator" />
-            <argument>%easyadmin.config%</argument>
-            <argument /> <!-- type guesser chain -->
-            <tag name="form.type" alias="easyadmin" />
-        </service>
-
-        <service id="easyadmin.form.type.extension" class="JavierEguiluz\Bundle\EasyAdminBundle\Form\Extension\EasyAdminExtension">
-            <argument type="service" id="request_stack" on-invalid="null" />
-            <tag name="form.type_extension" alias="form" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType" />
         </service>
 
         <service id="easyadmin.listener.request_post_initialize" class="JavierEguiluz\Bundle\EasyAdminBundle\EventListener\RequestPostInitializeListener">

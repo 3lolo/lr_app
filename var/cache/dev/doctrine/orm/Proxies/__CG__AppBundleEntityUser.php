@@ -36,7 +36,7 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'id', 'name', 'password', 'phone', 'email', 'addressId', 'address');
+            return ['__isInitialized__', 'id', 'name', 'password', 'phone', 'email', 'city', 'street', 'flat', 'dom'];
         }
 
-        return array('__isInitialized__', 'id', 'name', 'password', 'phone', 'email', 'addressId', 'address');
+        return ['__isInitialized__', 'id', 'name', 'password', 'phone', 'email', 'city', 'street', 'flat', 'dom'];
     }
 
     /**
@@ -97,7 +97,7 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -176,45 +176,89 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function setAddress($address)
+    public function getCity()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAddress', array($address));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCity', []);
 
-        return parent::setAddress($address);
+        return parent::getCity();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getAddress()
+    public function setCity($city)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAddress', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCity', [$city]);
 
-        return parent::getAddress();
+        return parent::setCity($city);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getAddressId()
+    public function getStreet()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAddressId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getStreet', []);
 
-        return parent::getAddressId();
+        return parent::getStreet();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setAddressId($addressId)
+    public function setStreet($street)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAddressId', array($addressId));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setStreet', [$street]);
 
-        return parent::setAddressId($addressId);
+        return parent::setStreet($street);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDom()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDom', []);
+
+        return parent::getDom();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDom($dom)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDom', [$dom]);
+
+        return parent::setDom($dom);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getFlat()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFlat', []);
+
+        return parent::getFlat();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setFlat($flat)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFlat', [$flat]);
+
+        return parent::setFlat($flat);
     }
 
     /**
@@ -223,7 +267,7 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function getEmail()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEmail', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEmail', []);
 
         return parent::getEmail();
     }
@@ -234,7 +278,7 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function setEmail($email)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEmail', array($email));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEmail', [$email]);
 
         return parent::setEmail($email);
     }
@@ -245,7 +289,7 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function getPhone()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPhone', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPhone', []);
 
         return parent::getPhone();
     }
@@ -256,7 +300,7 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function setPhone($phone)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPhone', array($phone));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPhone', [$phone]);
 
         return parent::setPhone($phone);
     }
@@ -267,7 +311,7 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function getPassword()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPassword', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPassword', []);
 
         return parent::getPassword();
     }
@@ -278,7 +322,7 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function setPassword($password)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPassword', array($password));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPassword', [$password]);
 
         return parent::setPassword($password);
     }
@@ -289,7 +333,7 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function getName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', []);
 
         return parent::getName();
     }
@@ -300,7 +344,7 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function setName($name)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', array($name));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', [$name]);
 
         return parent::setName($name);
     }
@@ -315,7 +359,7 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -326,7 +370,7 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function setId($id)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setId', array($id));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setId', [$id]);
 
         return parent::setId($id);
     }

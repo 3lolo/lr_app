@@ -17,7 +17,6 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\Config\FileLocator;
-use Symfony\Component\HttpKernel\Kernel;
 
 /**
  * Resolves all the backend configuration values and most of the entities
@@ -44,7 +43,6 @@ class EasyAdminExtension extends Extension
         'list' => '@EasyAdmin/default/list.html.twig',
         'new' => '@EasyAdmin/default/new.html.twig',
         'show' => '@EasyAdmin/default/show.html.twig',
-        'form' => '@EasyAdmin/default/form.html.twig',
         'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig',
         'paginator' => '@EasyAdmin/default/paginator.html.twig',
         'field_array' => '@EasyAdmin/default/field_array.html.twig',
@@ -96,6 +94,7 @@ class EasyAdminExtension extends Extension
         // load bundle's services
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
+        $loader->load('form.xml');
 
         // Don't register our exception listener if debug is enabled
         if ($container->getParameter('kernel.debug')) {
@@ -663,7 +662,7 @@ class EasyAdminExtension extends Extension
     private function ensureBackwardCompatibility(ContainerBuilder $container)
     {
         // BC for Symfony 2.3 and Request Stack
-        $isRequestStackAvailable = version_compare(Kernel::VERSION, '2.4.0', '>=');
+        $isRequestStackAvailable = class_exists('Symfony\\Component\\HttpFoundation\\RequestStack');
         if (!$isRequestStackAvailable) {
             $needsSetRequestMethodCall = array('easyadmin.listener.request_post_initialize', 'easyadmin.form.type.extension');
             foreach ($needsSetRequestMethodCall as $serviceId) {

@@ -7,13 +7,6 @@ use JavierEguiluz\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdmin
 
 class AdminController extends BaseAdminController
 {
-    public function createNewUserEntity()
-    {
-        $user  = new User(array('ROLE_USER'),true);
-        return $user;
-    }
 
-    public function createNewUserForm(){
 
-    }
 }

@@ -261,10 +261,14 @@ span.badge {
 
 /* Buttons
    ------------------------------------------------------------------------- */
+a.btn:not([class*=btn-]),
+input.btn:not([class*=btn-]),
+button.btn:not([class*=btn-]) {
+    background: {{ brand_color }};
+}
 a.btn,
 input.btn,
 button.btn {
-    background: {{ brand_color }};
     border: none;
     border-radius: 4px;
     color: {{ colors.white }};
@@ -682,6 +686,15 @@ body.list .pagination.last-page li:nth-child(2) {
 }
 
 /* -------------------------------------------------------------------------
+   FORM PAGE
+   ------------------------------------------------------------------------- */
+form label.control-label.required:after {
+    content: "\00a0*";
+    color: red;
+    position: absolute;
+}
+
+/* -------------------------------------------------------------------------
    NEW PAGE
    ------------------------------------------------------------------------- */
 body.new form textarea {
@@ -692,6 +705,10 @@ body.new form .field-date select + select {
 }
 body.new form .field-collection-action {
     margin-top: -15px;
+}
+body.new form .field-collection-item-action {
+    margin-bottom: 0;
+    margin-top: 5px;
 }
 
 body.new form #form-actions-row button,
@@ -720,6 +737,10 @@ body.edit form .field-date select + select {
 }
 body.edit form .field-collection-action {
     margin-top: -15px;
+}
+body.edit form .field-collection-item-action {
+    margin-bottom: 0;
+    margin-top: 5px;
 }
 
 body.edit form #form-actions-row button,

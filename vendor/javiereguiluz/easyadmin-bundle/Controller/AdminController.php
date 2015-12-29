@@ -627,7 +627,6 @@ class AdminController extends Controller
     {
         if (method_exists($this, $customMethodName = 'create'.$this->entity['name'].'EntityForm')) {
             $form = $this->{$customMethodName}($entity, $entityProperties, $view);
-            //print_r($form);
             if (!$form instanceof FormInterface) {
                 throw new \Exception(sprintf(
                     'The "%s" method must return a FormInterface, "%s" given.',
